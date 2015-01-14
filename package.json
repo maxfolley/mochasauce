@@ -1,26 +1,25 @@
 {
-  "name": "gulp-mochasauce",
+  "name": "mochasauce",
   "version": "0.0.1",
-  "description": "Gulp tasks for running mocha tesks with Sauce Connect",
+  "description": "Run mocha tests with Sauce Connect",
   "main": "index.js",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxfolley/gulp-mochasauce.git"
+    "url": "https://github.com/maxfolley/mochasauce.git"
   },
   "keywords": [
-    "gulp",
     "mocha",
     "sauce"
   ],
   "author": "Maxwell Folley <maxwell.folley@gmail.com> (http://maxwellfolley.me/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxfolley/gulp-mochasauce/issues"
+    "url": "https://github.com/maxfolley/mochasauce/issues"
   },
-  "homepage": "https://github.com/maxfolley/gulp-mochasauce",
+  "homepage": "https://github.com/maxfolley/mochasauce",
   "devDependencies": {
     "chai": "^1.10.0",
     "mocha": "^2.1.0"
