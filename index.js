@@ -18,9 +18,9 @@ module.exports = function (desireds) {
   before(function(done) {
     this.timeout(60000);
 
-    var browserName = process.env.BROWSER || self.browserName || 'chrome';
+    var browserName = process.env.BROWSER || self.browserName || undefined;
     var desired = {
-      browserName: browserName,
+      browserName: browserName, 
       name: 'example with ' + browserName,
       tags: ['tests']
     };

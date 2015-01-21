@@ -11,7 +11,7 @@ var mochaSauce = new MochaSauce({
   chrome: {browserName: 'chrome'},
   explorer: {browserName: 'internet explorer'}
 });
-mochaSauce.browserName = 'internet explorer'
+mochaSauce.browserName = 'chrome'
 
 describe("browser", function () {
 
@@ -20,7 +20,7 @@ describe("browser", function () {
   });
 
   it("sets wd browserName", function () {
-    expect(mochaSauce.browser.defaultCapabilities.browserName).to.equal('internet explorer');
+    mochaSauce.browser.sessionCapabilities().should.eventually.have.property('browserName', 'chrome');
   });
 
 });
