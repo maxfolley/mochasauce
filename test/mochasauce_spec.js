@@ -1,26 +1,40 @@
 var
   chai = require('chai'),
-  MochaSauce = require('../index');
+  mochasauce = require('../index');
 
 var
   expect = chai.expect,
   should = chai.should;
 
-var mochaSauce = new MochaSauce({
-  firefox: {browserName: 'firefox'},
-  chrome: {browserName: 'chrome'},
-  explorer: {browserName: 'internet explorer'}
-});
-mochaSauce.browserName = 'chrome'
-
 describe("browser", function () {
 
+  var browser;
+  before(function(done) {
+    browser = mochasauce.init(done, 'chrome');
+  });
+
   it("is defined", function () {
-    expect(mochaSauce.browser).not.to.be.an('undefined');
+    expect(browser).not.to.be.an('undefined');
   });
 
   it("sets wd browserName", function () {
-    mochaSauce.browser.sessionCapabilities().should.eventually.have.property('browserName', 'chrome');
+    browser.sessionCapabilities().should.eventually.have.property('browserName', 'chrome');
+  });
+
+});
+
+describe("env", function () {
+
+  it("uses env.BROWSER", function (done) {
+    process.env.BROWSER = "internet explorer";
+    var browser = mochasauce.init(done); 
+    browser.sessionCapabilities().should.eventually.have.property('browserName', 'internet explorer');
+  });
+
+  it("overrides env.BROWSER with parameter", function (done) {
+    process.env.BROWSER = "internet explorer";
+    var browser = mochasauce.init(done, 'chrome'); 
+    browser.sessionCapabilities().should.eventually.have.property('browserName', 'chrome');
   });
 
 });

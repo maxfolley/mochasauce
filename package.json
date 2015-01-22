@@ -4,7 +4,7 @@
   "description": "Run mocha tests with Sauce Connect",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --timeout 60000 --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,14 @@
   },
   "homepage": "https://github.com/maxfolley/mochasauce",
   "devDependencies": {
+    "gulp": "^3.8.10"
+  },
+  "dependencies": {
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
+    "lodash": "^2.4.1",
     "mocha": "^2.1.0",
+    "q": "^1.1.2",
     "wd": "^0.3.11"
   }
 }
